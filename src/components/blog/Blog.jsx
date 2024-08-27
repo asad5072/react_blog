@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Blog = ({blog}) => {
+const Blog = ({blog, handleAddtoBookmark}) => {
     const {title, cover_image, reading_time, author} = blog;
     return(
         <div className='py-12'>
@@ -16,12 +16,14 @@ const Blog = ({blog}) => {
                 </div>
             </div>
             <h2 className='text-4xl'>{title}</h2>
+            <button onClick={() => handleAddtoBookmark(blog)} className='bg-slate-400 p-2 rounded'>add to Book mark</button>
         </div>
     )
 }
 
 Blog.propTypes = {
-    blog: PropTypes.object.isRequired
+    blog: PropTypes.object.isRequired,
+    handleAddtoBookmark: PropTypes.func
 }
 
 export default Blog;
